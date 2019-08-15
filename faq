@@ -1,0 +1,24 @@
+some faq...
+
+1) query example for MSSQL: 
+mssql.sql:
+AA_admin_trigger,admin_trigger_id,Admin_trigger,id
+AA_admin_trigger,pr_activity_type,PR_Activity_Type,id
+...
+
+format:
+table,column,reference_table,reference_column
+
+
+2) filtering:
+$ cat tw_schema1.csv | grep -Ei 'Login|Person|User|Role|Site' | grep -Ev 'Audit_|PR_|Person_element|Login_attempt|Attempt_type|Failure_type|Admin_|AA_|AQ_|Documentum' | > tw_process_group
+
+3) converter.sh
+input : tw_process_group
+        header.dat
+output: output.dot
+        [some_tmp_files]
+
+4) graphvizing:
+$ dot -o test9.png -Tpng output.dot
+
